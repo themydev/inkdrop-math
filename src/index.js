@@ -5,7 +5,8 @@ import * as React from 'react'
 import { markdownRenderer } from 'inkdrop'
 import CodeMirror from 'codemirror'
 import macros from './macros'
-const { TeX } = require('react-katex')
+import 'katex/dist/katex.min.css';
+import TeX from '@matejmazur/react-katex';
 
 class Math extends React.Component {
   static propTypes = {
