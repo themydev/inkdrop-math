@@ -9,6 +9,10 @@
   "styleSheets": [
     "markdown-math.less"
   ],
+  "styles": [
+    "markdown-math.less",
+    "katex/dist/katex.min.css"
+  ],
   "scripts": {
     "build": "babel src/ -d lib/",
     "dev": "babel src/ -s -d lib/ --watch"
@@ -18,7 +22,8 @@
   },
   "dependencies": {
     "@matejmazur/react-katex": "^3.0.1",
-    "trim-trailing-lines": "^1.1.1"
+    "trim-trailing-lines": "^1.1.1",
+    "katex": "^0.10.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
