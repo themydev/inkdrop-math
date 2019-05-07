@@ -1,10 +1,10 @@
 {
-  "name": "math",
+  "name": "math-physics",
   "main": "./lib/index",
   "version": "1.0.0",
-  "description": "Add math syntax support to the editor and the preview",
+  "description": "Add math *and* physics syntax support to the editor and the preview",
   "keywords": [],
-  "repository": "https://github.com/inkdropapp/inkdrop-math",
+  "repository": "https://github.com/themydev/inkdrop-math",
   "license": "MIT",
   "styleSheets": [
     "markdown-math.less"
@@ -17,7 +17,7 @@
     "inkdrop": "^4.x"
   },
   "dependencies": {
-    "react-katex": "^2.0.2",
+    "@matejmazur/react-katex": "^3.0.1",
     "trim-trailing-lines": "^1.1.1"
   },
   "devDependencies": {

@@ -4,8 +4,8 @@ import math from './remark-math'
 import * as React from 'react'
 import { markdownRenderer } from 'inkdrop'
 import CodeMirror from 'codemirror'
-
-const { BlockMath, InlineMath } = require('react-katex')
+import macros from './macros'
+const { TeX } = require('react-katex')
 
 class Math extends React.Component {
   static propTypes = {
@@ -15,13 +15,16 @@ class Math extends React.Component {
 
   render() {
     const lang = this.props.lang
-    const Component = lang === 'math' ? BlockMath : InlineMath
+    const Component = lang === 'math' ? TeX : TeX
     const equation = this.props.children[0]
     if (equation) {
       try {
         return (
           <Component
             math={equation}
+            settings={{
+              macros: macros
+            }}
             renderError={error => {
               return (
                 <span className="ui error message mde-error-message">
