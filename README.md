@@ -1,5 +1,8 @@
 # math
 
+### Please note, this is a freshly forked work in progress to add physics LateX support to Inkdrop. It is not ready to be used.
+### If you are looking for the standard inkdrop-math plugin please go [here](https://github.com/inkdropapp/inkdrop-math)
+
 It adds math syntax support to markdown editor and preview.
 
 ## Install

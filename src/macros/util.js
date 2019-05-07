@@ -16,7 +16,7 @@ export function getSqureParameter(ctx) {
             if (ch === "]") {
                 break;
             } else if (ch === "EOF") {
-                throw new Error("Expecting ]");
+                return new Error("Expecting ]");
             }
 
             parameter += ch;

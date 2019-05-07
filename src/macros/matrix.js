@@ -13,7 +13,7 @@ export default {
         const start = ctx.popToken().text;
         const end = matrixBraces[start];
         if (typeof end === "undefined") {
-            throw new Error("Expecting opening delimeters after \\qty");
+            return new Error("Expecting opening delimeters after \\qty");
         }
 
         let expr = ["\\left"];
@@ -24,7 +24,7 @@ export default {
         while (true) {
             const next = ctx.popToken().text;
             if (next === "EOF") {
-                throw new Error("Expecting closing delimeters " + end + " after \\mqty");
+                return new Error("Expecting closing delimeters " + end + " after \\mqty");
             } else if (next !== end) {
                 expr.push(next);
                 if (next === start) {
@@ -73,7 +73,7 @@ export default {
     "\\imat"(ctx) {
         const n = parseInt(popNextArg(ctx));
         if (isNaN(n)) {
-            throw new Error("Expecting integers as the parameter of \\imat");
+            return new Error("Expecting integers as the parameter of \\imat");
         }
         return "\\dmat[0]{" + new Array(n).fill(1).join(",") + "}";
     },
@@ -86,7 +86,7 @@ export default {
         ];
 
         if (isNaN(n) || isNaN(m)) {
-            throw new Error("Expecting integers as the second and third parameter of \\xmat");
+            return new Error("Expecting integers as the second and third parameter of \\xmat");
         }
 
         if (!labeled || (n === 1 && m === 1)) {

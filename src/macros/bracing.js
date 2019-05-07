@@ -17,7 +17,7 @@ export default {
         const start = ctx.popToken().text;
         const end = braces[start];
         if (typeof end === "undefined") {
-            throw new Error("Expecting opening delimeters after \\qty");
+            return new Error("Expecting opening delimeters after \\qty");
         }
 
         let expr = ["\\left"];
@@ -27,7 +27,7 @@ export default {
         while (true) {
             const next = ctx.popToken().text;
             if (next === "EOF") {
-                throw new Error("Expecting closing delimeters " + end + " after \\mqty");
+                return new Error("Expecting closing delimeters " + end + " after \\mqty");
             } else if (next !== end) {
                 expr.push(next);
                 if (next === start) {
@@ -51,7 +51,7 @@ export default {
         const start = ctx.popToken().text;
         let end = evalBraces[start];
         if (typeof end === "undefined") {
-            throw new Error("Expecting opening delimeters after \\eval");
+            return new Error("Expecting opening delimeters after \\eval");
         }
 
         let expr = ["\\left"];
@@ -61,7 +61,7 @@ export default {
         while (true) {
             const next = ctx.popToken().text;
             if (next === "EOF") {
-                throw new Error("Expecting " + end + " after \\eval");
+                return new Error("Expecting " + end + " after \\eval");
             } else if (next !== end) {
                 expr.push(next);
                 if (next === start) {
